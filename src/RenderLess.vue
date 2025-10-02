@@ -1,5 +1,6 @@
 <template>
-  <div id="app">   
+  <div id="renderless">   
+    <div>
     <MouseTracker v-slot="{ position }">
       <div class="mouse-info">
         <h2>موقعیت فعلی موس:</h2>
@@ -8,21 +9,25 @@
       </div>
     </MouseTracker>
   </div>
+  <div class="provide-example">
+    <MouseTrackerProvide>
+      <ChildeProvideComponent />
+    </MouseTrackerProvide>  
+  </div>
+ <div>
+  </div>
+  
+ </div>
 </template>
 
-<script>
-import MouseTracker from './components/MouseTracker.vue'
-
-export default {
-  name: 'App',
-  components: {
-    MouseTracker
-  }
-}
+<script setup>
+ import MouseTracker from './components/MouseTracker.vue'
+import MouseTrackerProvide from './components/MouseTrackerProvide.vue'
+import ChildeProvideComponent from './components/ChildeProvideComponent.vue'
 </script>
 
 <style>
-#app {
+#renderless {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,6 +57,15 @@ export default {
   font-size: 18px;
   font-weight: bold;
   color: #666;
+}
+.provide-example {
+   background: #c135ac;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: white;
 }
 
 </style>

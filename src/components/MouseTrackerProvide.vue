@@ -9,10 +9,10 @@
     MouseTracker.value.y=event.clientY
   }
   onMounted(() => {
-    document.addEventListener('mousemove', updateMousePosition)
+    window.addEventListener('mousemove', updateMousePosition)
   })
   onUnmounted(() => {
-    document.removeEventListener('mousemove', updateMousePosition)
+    window.removeEventListener('mousemove', updateMousePosition)
   })
   provide('MouseTracker',MouseTracker)
   </script>
